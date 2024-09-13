@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test'
 import { PageManager } from '../page-objects/pageManager'
 import { faker } from '@faker-js/faker'
+import {argosScreenshot} from '@argos-ci/playwright'
 
 test.beforeEach(async ({ page }) => {
     await page.goto('/')
@@ -39,10 +40,10 @@ test('parametrized methods @smoke', async ({ page }) => {
 test.only('test with argos ci', async ({ page }) => {
     const pm = new PageManager(page)
     await pm.navigateTo().datePickerPage()
-    await pm.navigateTo().smartTablePage()
+    await argosScreenshot(page, "datepicker page")
     await pm.navigateTo().formLayoutsPage()
-    await pm.navigateTo().toastrPage()
-    await pm.navigateTo().tooltipPage()
+    await argosScreenshot(page, "form layouts page")
+   
 
 })
 
