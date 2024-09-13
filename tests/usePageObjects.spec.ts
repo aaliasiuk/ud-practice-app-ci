@@ -36,3 +36,14 @@ test('parametrized methods @smoke', async ({ page }) => {
 
 })
 
+test.only('test with argos ci', async ({ page }) => {
+    const pm = new PageManager(page)
+    await pm.navigateTo().datePickerPage()
+    await pm.navigateTo().smartTablePage()
+    await pm.navigateTo().formLayoutsPage()
+    await pm.navigateTo().toastrPage()
+    await pm.navigateTo().tooltipPage()
+
+})
+
+
